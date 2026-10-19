@@ -27,7 +27,7 @@ if __name__ == '__main__':
         from setup_accounts import main
         main()
     import uvicorn
-    host = os.getenv('SKYCONTROL_HOST', '127.0.0.1')
+    host = os.getenv('SKYCONTROL_HOST', '0.0.0.0')
     port = int(os.getenv('SKYCONTROL_PORT', '5000'))
     print(f'SkyControl: http://127.0.0.1:{port}')
     uvicorn.run('backend.app:app', host=host, port=port)
