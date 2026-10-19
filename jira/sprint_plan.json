@@ -1,0 +1,342 @@
+{
+ "sprints": [
+  {
+   "name": "SKY Sprint 1",
+   "start": "2026-08-03",
+   "end": "2026-08-14",
+   "goal": "Secure login portal, project skeleton and real data ingestion",
+   "points": 25,
+   "stories": [
+    {
+     "summary": "Login with verified credentials",
+     "epic": "E1",
+     "points": 5
+    },
+    {
+     "summary": "Store every login attempt in the backend",
+     "epic": "E1",
+     "points": 3
+    },
+    {
+     "summary": "Lock a username after 7 failures in 15 minutes",
+     "epic": "E1",
+     "points": 3
+    },
+    {
+     "summary": "Sessions, CSRF protection and logout",
+     "epic": "E1",
+     "points": 3
+    },
+    {
+     "summary": "Load the London-Amsterdam OpenSky recording",
+     "epic": "E2",
+     "points": 5
+    },
+    {
+     "summary": "Dataset register with provenance",
+     "epic": "E2",
+     "points": 3
+    },
+    {
+     "summary": "Project skeleton, linting and test harness",
+     "epic": "E8",
+     "points": 3
+    }
+   ]
+  },
+  {
+   "name": "SKY Sprint 2",
+   "start": "2026-08-17",
+   "end": "2026-08-28",
+   "goal": "Operations management and surveillance-integrity analytics",
+   "points": 26,
+   "stories": [
+    {
+     "summary": "Import and live-capture OpenSky snapshots",
+     "epic": "E2",
+     "points": 3
+    },
+    {
+     "summary": "Flight CRUD, search and cancellation",
+     "epic": "E3",
+     "points": 5
+    },
+    {
+     "summary": "Runway allocation with conflict blocking",
+     "epic": "E3",
+     "points": 5
+    },
+    {
+     "summary": "Runway calendar with alternatives",
+     "epic": "E3",
+     "points": 3
+    },
+    {
+     "summary": "Priority queue and alert centre",
+     "epic": "E3",
+     "points": 2
+    },
+    {
+     "summary": "Detect duplicate (ghost) targets",
+     "epic": "E4",
+     "points": 5
+    },
+    {
+     "summary": "Coast dropped tracks and measure the error",
+     "epic": "E4",
+     "points": 3
+    }
+   ]
+  },
+  {
+   "name": "SKY Sprint 3",
+   "start": "2026-08-31",
+   "end": "2026-09-11",
+   "goal": "AI models: learned trajectory prediction, conflict probe, holding, anomaly detection",
+   "points": 32,
+   "stories": [
+    {
+     "summary": "Compare STCA-style alerting with the SkyControl probe",
+     "epic": "E4",
+     "points": 8
+    },
+    {
+     "summary": "Detect holding and estimate AMAN linear holding",
+     "epic": "E4",
+     "points": 5
+    },
+    {
+     "summary": "Similar callsigns sharing airspace",
+     "epic": "E4",
+     "points": 3
+    },
+    {
+     "summary": "Learned trajectory predictor",
+     "epic": "E5",
+     "points": 8
+    },
+    {
+     "summary": "Hold predictor (30-80 NM before the stack)",
+     "epic": "E5",
+     "points": 3
+    },
+    {
+     "summary": "Emergency anomaly detector",
+     "epic": "E5",
+     "points": 5
+    }
+   ]
+  },
+  {
+   "name": "SKY Sprint 4",
+   "start": "2026-09-14",
+   "end": "2026-09-25",
+   "goal": "Communication safety, context-switch policy and the scenario engine",
+   "points": 47,
+   "stories": [
+    {
+     "summary": "Communication Monte Carlo with sensitivity analysis",
+     "epic": "E4",
+     "points": 5
+    },
+    {
+     "summary": "Adaptive automation (context switch) policy",
+     "epic": "E5",
+     "points": 5
+    },
+    {
+     "summary": "Readback verifier",
+     "epic": "E5",
+     "points": 8
+    },
+    {
+     "summary": "Scenario engine with exact conflict verification",
+     "epic": "E6",
+     "points": 8
+    },
+    {
+     "summary": "Communication scenarios",
+     "epic": "E6",
+     "points": 5
+    },
+    {
+     "summary": "Surveillance and automation scenarios",
+     "epic": "E6",
+     "points": 5
+    },
+    {
+     "summary": "Emergency and runway scenarios",
+     "epic": "E6",
+     "points": 5
+    },
+    {
+     "summary": "Ten-step handling pipeline per scenario",
+     "epic": "E6",
+     "points": 3
+    },
+    {
+     "summary": "Workflow model: conventional vs hybrid",
+     "epic": "E6",
+     "points": 3
+    }
+   ]
+  },
+  {
+   "name": "SKY Sprint 5",
+   "start": "2026-09-28",
+   "end": "2026-10-09",
+   "goal": "3D web app: airspace replay, scenario lab, statistics and emergency injection",
+   "points": 43,
+   "stories": [
+    {
+     "summary": "Supervisor user management and attempt log page",
+     "epic": "E1",
+     "points": 3
+    },
+    {
+     "summary": "Statistical analysis page",
+     "epic": "E4",
+     "points": 5
+    },
+    {
+     "summary": "Emergency injection into real traffic",
+     "epic": "E5",
+     "points": 5
+    },
+    {
+     "summary": "Approval gate and role rules",
+     "epic": "E6",
+     "points": 3
+    },
+    {
+     "summary": "3D airspace replay of the recording",
+     "epic": "E7",
+     "points": 8
+    },
+    {
+     "summary": "Scenario lab page with step-by-step view",
+     "epic": "E7",
+     "points": 8
+    },
+    {
+     "summary": "Communication assistant page",
+     "epic": "E7",
+     "points": 5
+    },
+    {
+     "summary": "Command centre and gap analysis pages",
+     "epic": "E7",
+     "points": 3
+    },
+    {
+     "summary": "AI models page with policy simulator",
+     "epic": "E7",
+     "points": 3
+    }
+   ]
+  },
+  {
+   "name": "SKY Sprint 6",
+   "start": "2026-10-12",
+   "end": "2026-10-23",
+   "goal": "DevOps (Docker, Jenkins, GitHub Actions), testing, report and release",
+   "points": 32,
+   "stories": [
+    {
+     "summary": "OpenSky multi-frame recorder script",
+     "epic": "E2",
+     "points": 2
+    },
+    {
+     "summary": "Automated test suite",
+     "epic": "E8",
+     "points": 5
+    },
+    {
+     "summary": "Multi-stage Dockerfile and compose",
+     "epic": "E8",
+     "points": 5
+    },
+    {
+     "summary": "Jenkins pipeline",
+     "epic": "E8",
+     "points": 5
+    },
+    {
+     "summary": "GitHub repository and Actions CI",
+     "epic": "E8",
+     "points": 3
+    },
+    {
+     "summary": "Smoke and load tests",
+     "epic": "E8",
+     "points": 2
+    },
+    {
+     "summary": "Project report (VIT template)",
+     "epic": "E9",
+     "points": 5
+    },
+    {
+     "summary": "Guides: GitHub, Jenkins, Jira, Docker",
+     "epic": "E9",
+     "points": 3
+    },
+    {
+     "summary": "Faculty demonstration script",
+     "epic": "E9",
+     "points": 2
+    }
+   ]
+  }
+ ],
+ "epics": [
+  {
+   "id": "E1",
+   "title": "Secure login portal and user management",
+   "points": 17
+  },
+  {
+   "id": "E2",
+   "title": "Real data pipeline (OpenSky recording)",
+   "points": 13
+  },
+  {
+   "id": "E3",
+   "title": "Operations management",
+   "points": 15
+  },
+  {
+   "id": "E4",
+   "title": "Real-data analytics and statistics",
+   "points": 34
+  },
+  {
+   "id": "E5",
+   "title": "AI models and adaptive automation",
+   "points": 34
+  },
+  {
+   "id": "E6",
+   "title": "Scenario lab (21 step-by-step scenarios)",
+   "points": 32
+  },
+  {
+   "id": "E7",
+   "title": "3D web application and UX",
+   "points": 27
+  },
+  {
+   "id": "E8",
+   "title": "DevOps and quality",
+   "points": 23
+  },
+  {
+   "id": "E9",
+   "title": "Documentation, report and demonstration",
+   "points": 10
+  }
+ ],
+ "total_points": 205,
+ "stories": 47
+}

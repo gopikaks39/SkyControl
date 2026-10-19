@@ -1,0 +1,39 @@
+name: SkyControl CI
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - run: ruff check .
+      - run: python -m pytest --junitxml=reports/junit.xml --cov=backend --cov-report=term
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-reports
+          path: reports/
+
+  docker:
+    needs: test
+    runs-on: ubuntu-latest
+    env:
+      SKYCONTROL_CONTROLLER_PASSWORD: ci-controller-2026
+      SKYCONTROL_SUPERVISOR_PASSWORD: ci-supervisor-2026
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t skycontrol:ci .
+      - name: Smoke test the container
+        run: |
+          docker run -d --name sc -p 5099:5000 -e SKYCONTROL_CONTROLLER_PASSWORD -e SKYCONTROL_SUPERVISOR_PASSWORD skycontrol:ci
+          for i in $(seq 1 30); do curl -fs http://127.0.0.1:5099/api/health && break; sleep 2; done
+          sh scripts/smoke_test.sh http://127.0.0.1:5099 supervisor "$SKYCONTROL_SUPERVISOR_PASSWORD"
+      - if: always()
+        run: docker rm -f sc || true

@@ -1,0 +1,57 @@
+Issue Id,Issue Type,Summary,Description,Priority,Story Points,Sprint,Labels,Parent Id,Status
+1,Epic,Secure login portal and user management,Epic E1: Secure login portal and user management.,High,,,skycontrol,,Done
+2,Epic,Real data pipeline (OpenSky recording),Epic E2: Real data pipeline (OpenSky recording).,High,,,skycontrol,,In Progress
+3,Epic,Operations management,Epic E3: Operations management.,High,,,skycontrol,,Done
+4,Epic,Real-data analytics and statistics,Epic E4: Real-data analytics and statistics.,High,,,skycontrol,,Done
+5,Epic,AI models and adaptive automation,Epic E5: AI models and adaptive automation.,High,,,skycontrol,,Done
+6,Epic,Scenario lab (21 step-by-step scenarios),Epic E6: Scenario lab (21 step-by-step scenarios).,High,,,skycontrol,,Done
+7,Epic,3D web application and UX,Epic E7: 3D web application and UX.,High,,,skycontrol,,Done
+8,Epic,DevOps and quality,Epic E8: DevOps and quality.,High,,,skycontrol,,In Progress
+9,Epic,"Documentation, report and demonstration","Epic E9: Documentation, report and demonstration.",High,,,skycontrol,,In Progress
+10,Story,Login with verified credentials,"Acceptance criteria: PBKDF2 hashes; correct credentials open the workspace; wrong ones show ""Wrong username or password"".",Highest,5,SKY Sprint 1,skycontrol e1,1,Done
+11,Story,Store every login attempt in the backend,"Acceptance criteria: Each attempt stores username tried, IP, browser, outcome and reason; no password is stored.",Highest,3,SKY Sprint 1,skycontrol e1,1,Done
+12,Story,Lock a username after 7 failures in 15 minutes,Acceptance criteria: 8th attempt returns 429 even with the right password; lockout reason is stored.,High,3,SKY Sprint 1,skycontrol e1,1,Done
+13,Story,"Sessions, CSRF protection and logout","Acceptance criteria: HTTP-only session cookie, CSRF token on every change, logout removes the session.",High,3,SKY Sprint 1,skycontrol e1,1,Done
+14,Story,Supervisor user management and attempt log page,Acceptance criteria: Supervisor creates/disables users and sees all attempts with an outcome chart.,Medium,3,SKY Sprint 5,skycontrol e1,1,Done
+15,Story,Load the London-Amsterdam OpenSky recording,"Acceptance criteria: 906 aircraft, 86,447 reports, exact duplicates removed; SHA-256 recorded.",Highest,5,SKY Sprint 1,skycontrol e2,2,Done
+16,Story,Dataset register with provenance,"Acceptance criteria: Every dataset listed as real or constructed with period, records and checksum.",High,3,SKY Sprint 1,skycontrol e2,2,Done
+17,Story,Import and live-capture OpenSky snapshots,Acceptance criteria: Import /states/all JSON; live capture logs failures and never fabricates data.,Medium,3,SKY Sprint 2,skycontrol e2,2,Done
+18,Story,OpenSky multi-frame recorder script,Acceptance criteria: scripts/record_opensky.py writes the same format as the bundled recording.,Low,2,SKY Sprint 6,skycontrol e2,2,To Do
+19,Story,"Flight CRUD, search and cancellation",Acceptance criteria: Validated create/edit/cancel; duplicates rejected; every change audited.,High,5,SKY Sprint 2,skycontrol e3,3,Done
+20,Story,Runway allocation with conflict blocking,Acceptance criteria: Occupied/closed/reserved runways are blocked and raise an alert.,High,5,SKY Sprint 2,skycontrol e3,3,Done
+21,Story,Runway calendar with alternatives,Acceptance criteria: Overlapping bookings rejected with feasible alternative slots.,Medium,3,SKY Sprint 2,skycontrol e3,3,Done
+22,Story,Priority queue and alert centre,Acceptance criteria: Emergencies first; alerts can be acknowledged and resolved.,Medium,2,SKY Sprint 2,skycontrol e3,3,Done
+23,Story,Detect duplicate (ghost) targets,"Acceptance criteria: Address bit-error, same-callsign and co-location rules; known pair 4caf41/4cafc1 found.",High,5,SKY Sprint 2,skycontrol e4,4,Done
+24,Story,Coast dropped tracks and measure the error,Acceptance criteria: Dead-reckoned vs frozen error at reappearance with Wilcoxon test.,High,3,SKY Sprint 2,skycontrol e4,4,Done
+25,Story,Compare STCA-style alerting with the SkyControl probe,"Acceptance criteria: Four methods scored on real encounters: alerts/hour, nuisance share, warning time.",Highest,8,SKY Sprint 3,skycontrol e4,4,Done
+26,Story,Detect holding and estimate AMAN linear holding,"Acceptance criteria: Holds per stack, fuel/CO2 with ranges, absorbable minutes over 350 NM.",High,5,SKY Sprint 3,skycontrol e4,4,Done
+27,Story,Similar callsigns sharing airspace,"Acceptance criteria: Pairs within 40 NM / 10,000 ft with similarity >= 0.7.",Medium,3,SKY Sprint 3,skycontrol e4,4,Done
+28,Story,Communication Monte Carlo with sensitivity analysis,Acceptance criteria: Voice vs hybrid undetected errors per 10k clearances with CI and a 12-cell sweep.,High,5,SKY Sprint 4,skycontrol e4,4,Done
+29,Story,Statistical analysis page,"Acceptance criteria: Eight tabs; every result labelled measured, modelled or scenario.",High,5,SKY Sprint 5,skycontrol e4,4,Done
+30,Story,Learned trajectory predictor,Acceptance criteria: Gradient-boosted residual model; temporal split; 5-min error reduced on held-out data.,Highest,8,SKY Sprint 3,skycontrol e5,5,Done
+31,Story,Hold predictor (30-80 NM before the stack),Acceptance criteria: Logistic regression with AUC and bootstrap CI on the test period.,Medium,3,SKY Sprint 3,skycontrol e5,5,Done
+32,Story,Emergency anomaly detector,Acceptance criteria: Isolation forest + rule + CLAM; detection of injected emergencies at 1% false alarms.,High,5,SKY Sprint 3,skycontrol e5,5,Done
+33,Story,Adaptive automation (context switch) policy,"Acceptance criteria: AUTO/CONSENT/ADVISORY/MANUAL from severity, confidence, data quality, disagreement, security.",Highest,5,SKY Sprint 4,skycontrol e5,5,Done
+34,Story,Readback verifier,"Acceptance criteria: Parses ICAO phraseology and speech transcripts; MISMATCH, WRONG_AIRCRAFT, INCOMPLETE; >95% detection.",Highest,8,SKY Sprint 4,skycontrol e5,5,Done
+35,Story,Emergency injection into real traffic,"Acceptance criteria: Ranked airports, 3-degree path, conflicts with recorded traffic resolved, re-sequencing, messages.",High,5,SKY Sprint 5,skycontrol e5,5,Done
+36,Story,Scenario engine with exact conflict verification,"Acceptance criteria: 21 scenarios, comparator and SkyControl plans, all-pairs segment test.",Highest,8,SKY Sprint 4,skycontrol e6,6,Done
+37,Story,Communication scenarios,"Acceptance criteria: Readback error, callsign confusion, radio failure with message logs.",High,5,SKY Sprint 4,skycontrol e6,6,Done
+38,Story,Surveillance and automation scenarios,"Acceptance criteria: Ghost target, surveillance gap and AI disagreement with context switches.",High,5,SKY Sprint 4,skycontrol e6,6,Done
+39,Story,Emergency and runway scenarios,"Acceptance criteria: Fuel, medical, engine failure, emergency descent, bird strike, incursion, closure, go-around, diversion.",High,5,SKY Sprint 4,skycontrol e6,6,Done
+40,Story,Ten-step handling pipeline per scenario,"Acceptance criteria: Detect, assess, context switch, plan, verify, authorise, communicate, execute, monitor, close.",High,3,SKY Sprint 4,skycontrol e6,6,Done
+41,Story,Workflow model: conventional vs hybrid,"Acceptance criteria: Time to all instructions, transmissions and controller actions per scenario.",Medium,3,SKY Sprint 4,skycontrol e6,6,Done
+42,Story,Approval gate and role rules,Acceptance criteria: Critical plans need a supervisor; run persists across account switches.,High,3,SKY Sprint 5,skycontrol e6,6,Done
+43,Story,3D airspace replay of the recording,"Acceptance criteria: three.js scene, trails, altitude stems, coastline, airports, stacks, layers, monitor panel.",Highest,8,SKY Sprint 5,skycontrol e7,7,Done
+44,Story,Scenario lab page with step-by-step view,"Acceptance criteria: 3D replay, steps, context log, messages, checks and comparison.",Highest,8,SKY Sprint 5,skycontrol e7,7,Done
+45,Story,Communication assistant page,"Acceptance criteria: Composer, phraseology, readback check, speech input, log.",High,5,SKY Sprint 5,skycontrol e7,7,Done
+46,Story,Command centre and gap analysis pages,"Acceptance criteria: KPIs, headline results, gap-to-fix table and nine gap cards.",Medium,3,SKY Sprint 5,skycontrol e7,7,Done
+47,Story,AI models page with policy simulator,Acceptance criteria: Model cards with limits; sliders drive the automation decision.,Medium,3,SKY Sprint 5,skycontrol e7,7,Done
+48,Story,"Project skeleton, linting and test harness","Acceptance criteria: FastAPI app, ruff config, pytest fixtures with isolated databases.",High,3,SKY Sprint 1,skycontrol e8,8,Done
+49,Story,Automated test suite,"Acceptance criteria: 93 tests: auth, operations, scenarios, lab API, comms, analytics, app wiring.",Highest,5,SKY Sprint 6,skycontrol e8,8,To Do
+50,Story,Multi-stage Dockerfile and compose,Acceptance criteria: test and runtime stages; analysis pre-computed; health check; non-root.,Highest,5,SKY Sprint 6,skycontrol e8,8,To Do
+51,Story,Jenkins pipeline,"Acceptance criteria: Lint+tests in Docker, image, smoke test, deploy; JUnit and artifacts.",Highest,5,SKY Sprint 6,skycontrol e8,8,To Do
+52,Story,GitHub repository and Actions CI,"Acceptance criteria: Branch protection, PR checks, release tag.",High,3,SKY Sprint 6,skycontrol e8,8,To Do
+53,Story,Smoke and load tests,Acceptance criteria: smoke_test.sh checks wrong login and stored attempt; load_test.py reports latencies.,Medium,2,SKY Sprint 6,skycontrol e8,8,To Do
+54,Story,Project report (VIT template),"Acceptance criteria: Chapters 1-9 with figures, tables, UML and results.",High,5,SKY Sprint 6,skycontrol e9,9,To Do
+55,Story,"Guides: GitHub, Jenkins, Jira, Docker",Acceptance criteria: Step-by-step guides validated against the delivered files.,High,3,SKY Sprint 6,skycontrol e9,9,To Do
+56,Story,Faculty demonstration script,Acceptance criteria: Ten-minute walkthrough in START_HERE.md.,Medium,2,SKY Sprint 6,skycontrol e9,9,To Do

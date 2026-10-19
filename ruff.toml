@@ -1,0 +1,7 @@
+line-length = 140
+target-version = "py312"
+extend-exclude = ["frontend", "data"]
+
+[lint]
+select = ["E9", "F", "B006", "B008"]
+ignore = ["B008"]

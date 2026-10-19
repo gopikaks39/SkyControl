@@ -1,0 +1,7 @@
+{
+  "source_url": "https://opensky-network.org/api/states/all?lamin=6&lamax=37&lomin=68&lomax=98",
+  "sha256": "b81a8e115f976b74932fa9833b7936e8a9d91f39232b3d369d8d4959f1fa8fa6",
+  "observed_unix": 1792216116,
+  "record_count": 284,
+  "usage": "Recorded provider observations; never label this bundled capture as currently live."
+}

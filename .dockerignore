@@ -1,0 +1,12 @@
+.git
+.venv
+.env
+**/__pycache__
+.pytest_cache
+.ruff_cache
+reports
+data/cache
+data/*.sqlite3*
+data/db
+docs/report
+*.zip

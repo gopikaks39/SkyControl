@@ -1,0 +1,41 @@
+iata,airport,city,state,country,lat,long,cnt
+ORD,Chicago O'Hare International,Chicago,IL,USA,41.979595,-87.90446417,25129
+ATL,William B Hartsfield-Atlanta Intl,Atlanta,GA,USA,33.64044444,-84.42694444,21925
+DFW,Dallas-Fort Worth International,Dallas-Fort Worth,TX,USA,32.89595056,-97.0372,20662
+PHX,Phoenix Sky Harbor International,Phoenix,AZ,USA,33.43416667,-112.0080556,17290
+DEN,Denver Intl,Denver,CO,USA,39.85840806,-104.6670019,13781
+IAH,George Bush Intercontinental,Houston,TX,USA,29.98047222,-95.33972222,13223
+SFO,San Francisco International,San Francisco,CA,USA,37.61900194,-122.3748433,12016
+LAX,Los Angeles International,Los Angeles,CA,USA,33.94253611,-118.4080744,11797
+MCO,Orlando International,Orlando,FL,USA,28.42888889,-81.31602778,10536
+CLT,Charlotte/Douglas International,Charlotte,NC,USA,35.21401111,-80.94312583,10490
+SLC,Salt Lake City Intl,Salt Lake City,UT,USA,40.78838778,-111.9777731,9898
+TPA,Tampa International ,Tampa,FL,USA,27.97547222,-82.53325,9182
+EWR,Newark Intl,Newark,NJ,USA,40.69249722,-74.16866056,8678
+LAS,McCarran International,Las Vegas,NV,USA,36.08036111,-115.1523333,8523
+PHL,Philadelphia Intl,Philadelphia,PA,USA,39.87195278,-75.24114083,7965
+MSP,Minneapolis-St Paul Intl,Minneapolis,MN,USA,44.88054694,-93.2169225,7690
+SEA,Seattle-Tacoma Intl,Seattle,WA,USA,47.44898194,-122.3093131,7541
+LGA,LaGuardia,New York,NY,USA,40.77724306,-73.87260917,7392
+MDW,Chicago Midway,Chicago,IL,USA,41.7859825,-87.75242444,6979
+IAD,Washington Dulles International,Chantilly,VA,USA,38.94453194,-77.45580972,6779
+SAN,San Diego International-Lindbergh ,San Diego,CA,USA,32.73355611,-117.1896567,6233
+STL,Lambert-St Louis International,St Louis,MO,USA,38.74768694,-90.35998972,6204
+DTW,Detroit Metropolitan-Wayne County,Detroit,MI,USA,42.21205889,-83.34883583,6044
+JFK,John F Kennedy Intl,New York,NY,USA,40.63975111,-73.77892556,5945
+MIA,Miami International,Miami,FL,USA,25.79325,-80.29055556,5907
+BOS,Gen Edw L Logan Intl,Boston,MA,USA,42.3643475,-71.00517917,5627
+SMF,Sacramento International,Sacramento,CA,USA,38.69542167,-121.5907669,4943
+BWI,Baltimore-Washington International,Baltimore,MD,USA,39.17540167,-76.66819833,4749
+SNA,John Wayne /Orange Co,Santa Ana,CA,USA,33.67565861,-117.8682225,4616
+MSY,New Orleans International ,New Orleans,LA,USA,29.99338889,-90.25802778,4432
+SJC,San Jose International,San Jose,CA,USA,37.36186194,-121.9290089,4367
+DCA,Ronald Reagan Washington National,Arlington,VA,USA,38.85208333,-77.03772222,4332
+PDX,Portland Intl,Portland,OR,USA,45.58872222,-122.5975,4071
+RSW,Southwest Florida International,Ft. Myers,FL,USA,26.53616667,-81.75516667,4057
+PBI,Palm Beach International,West Palm Beach,FL,USA,26.68316194,-80.09559417,3972
+RDU,Raleigh-Durham International,Raleigh,NC,USA,35.87763889,-78.78747222,3896
+HOU,William P Hobby,Houston,TX,USA,29.64541861,-95.27888889,3824
+SAT,San Antonio International,San Antonio,TX,USA,29.53369444,-98.46977778,3654
+FLL,Fort Lauderdale-Hollywood Int'l,Ft. Lauderdale,FL,USA,26.07258333,-80.15275,3616
+MCI,Kansas City International,Kansas City,MO,USA,39.29760528,-94.71390556,3403

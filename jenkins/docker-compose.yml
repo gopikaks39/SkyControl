@@ -1,0 +1,21 @@
+# Local Jenkins for the SkyControl pipeline:  cd jenkins && docker compose up -d --build
+# Open http://localhost:8080 and follow docs/JENKINS_GUIDE.md.
+services:
+  jenkins:
+    build: .
+    image: skycontrol-jenkins:lts
+    container_name: skycontrol-jenkins
+    user: root                     # needed to use the host Docker socket; acceptable for a local lab, not for production
+    ports:
+      - "8080:8080"
+    environment:
+      SKYCONTROL_TARGET_HOST: host.docker.internal
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+
+volumes:
+  jenkins_home:

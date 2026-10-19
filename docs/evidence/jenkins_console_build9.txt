@@ -1,0 +1,203 @@
+SkyControl credentials registered
+Started
+Resume disabled by user, switching to high-performance, low-durability mode.
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /build
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] timeout
+Timeout set to expire in 45 min
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] checkout
+[Pipeline] fileExists
+[Pipeline] sh
++ git rev-parse --short HEAD
++ echo local
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] echo
+Building SkyControl from '.' at local
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Lint and tests)
+[Pipeline] dir
+Running in /build
+[Pipeline] {
+[Pipeline] sh
++ docker build --target test -t skycontrol-test:9 .
++ docker rm -f skycontrol-tests
++ rm -rf reports
++ set +e
++ docker run --name skycontrol-tests skycontrol-test:9
+All checks passed!
+........................................................................ [ 77%]
+.....................                                                    [100%]
+=============================== warnings summary ===============================
+tests/test_analytics.py::test_analysis_and_airspace_api
+  /usr/local/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.12.15-final-0 _______________
+Name                                Stmts   Miss  Cover
+-------------------------------------------------------
+backend/__init__.py                     0      0   100%
+backend/analytics/__init__.py           0      0   100%
+backend/analytics/anomaly.py          109      1    99%
+backend/analytics/callsigns.py         44      0   100%
+backend/analytics/conflicts.py        178      2    99%
+backend/analytics/emergency.py        221      7    97%
+backend/analytics/hold_model.py        89      1    99%
+backend/analytics/holding.py           85      0   100%
+backend/analytics/live.py              92      5    95%
+backend/analytics/montecarlo.py       160      0   100%
+backend/analytics/pipeline.py         101     13    87%
+backend/analytics/prediction.py       135      4    97%
+backend/analytics/recording.py        119      2    98%
+backend/analytics/stats.py             41     11    73%
+backend/analytics/surveillance.py      90      4    96%
+backend/app.py                         65     10    85%
+backend/auth.py                       100      9    91%
+backend/config.py                      22      0   100%
+backend/core/__init__.py                0      0   100%
+backend/core/automation.py             45     11    76%
+backend/core/comms.py                 280      3    99%
+backend/core/gaps.py                   22      1    95%
+backend/core/geo.py                    28      5    82%
+backend/core/scenarios.py             501     18    96%
+backend/core/separation.py            108     13    88%
+backend/core/workflow.py               30      0   100%
+backend/database.py                    34      0   100%
+backend/opensky.py                     95     51    46%
+backend/routes/__init__.py              0      0   100%
+backend/routes/airspace.py             70      8    89%
+backend/routes/auth_routes.py          83     10    88%
+backend/routes/data.py                 70     35    50%
+backend/routes/insight.py             108     28    74%
+backend/routes/lab.py                 178     41    77%
+backend/routes/operations.py          312     84    73%
+backend/scheduling.py                  60     10    83%
+backend/seed.py                        47      3    94%
+-------------------------------------------------------
+TOTAL                                3722    390    90%
+Coverage XML written to file reports/coverage.xml
+93 passed, 1 warning in 122.21s (0:02:02)
++ status=0
++ set -e
++ docker cp skycontrol-tests:/app/reports ./reports
++ docker rm -f skycontrol-tests
++ exit 0
+[Pipeline] }
+[Pipeline] // dir
+Post stage
+[Pipeline] junit
+Recording test results
+[Checks API] No suitable checks publisher found.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build image)
+[Pipeline] dir
+Running in /build
+[Pipeline] {
+[Pipeline] sh
++ docker build --target runtime -t skycontrol:9 -t skycontrol:local -t skycontrol:latest .
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Smoke test container)
+[Pipeline] withCredentials
+Masking supported pattern matches of $SKYCONTROL_CONTROLLER_PASSWORD or $SKYCONTROL_SUPERVISOR_PASSWORD
+[Pipeline] {
+[Pipeline] dir
+Running in /build
+[Pipeline] {
+[Pipeline] sh
++ docker rm -f skycontrol-smoke
++ docker run -d --name skycontrol-smoke -p 5099:5000 -e SKYCONTROL_CONTROLLER_PASSWORD -e SKYCONTROL_SUPERVISOR_PASSWORD skycontrol:9
+fd12976284b2f87c54afe3b3734257861df65b02c152bd7fcec3cd01f2ee6098
++ seq 1 30
++ curl -fs http://127.0.0.1:5099/api/health
++ sleep 2
++ curl -fs http://127.0.0.1:5099/api/health
++ sleep 2
++ curl -fs http://127.0.0.1:5099/api/health
+{"status":"ok","application":"SkyControl","version":"6.0.0","mode":"RESEARCH_SIMULATION_ONLY","analytics_ready":true,"analytics_error":null}+ break
++ sh scripts/smoke_test.sh http://127.0.0.1:5099 supervisor ****
+Health:
+{"status":"ok","application":"SkyControl","version":"6.0.0","mode":"RESEARCH_SIMULATION_ONLY","analytics_ready":true,"analytics_error":null}
+Frontend: OK
+Wrong credentials rejected: OK (401)
+Login with verified credentials: OK
+Scenario lab: readback_error plan verified
+Failed login stored in the backend: OK
+Smoke test passed
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // withCredentials
+Post stage
+[Pipeline] sh
++ docker rm -f skycontrol-smoke
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy)
+[Pipeline] withCredentials
+Masking supported pattern matches of $SKYCONTROL_CONTROLLER_PASSWORD or $SKYCONTROL_SUPERVISOR_PASSWORD
+[Pipeline] {
+[Pipeline] dir
+Running in /build
+[Pipeline] {
+[Pipeline] sh
++ docker rm -f skycontrol
++ docker run -d --name skycontrol --restart unless-stopped -p 5000:5000 -v skycontrol-db:/app/data/db -e SKYCONTROL_CONTROLLER_PASSWORD -e SKYCONTROL_SUPERVISOR_PASSWORD skycontrol:latest
+e8f3155d83ae5684462514e24e8ea7ff0d0eefea0c6009525408f455204fbfbe
++ seq 1 30
++ curl -fs http://127.0.0.1:5000/api/health
++ sleep 2
++ curl -fs http://127.0.0.1:5000/api/health
++ sleep 2
++ curl -fs http://127.0.0.1:5000/api/health
+{"status":"ok","application":"SkyControl","version":"6.0.0","mode":"RESEARCH_SIMULATION_ONLY","analytics_ready":true,"analytics_error":null}+ break
++ docker ps --filter name=skycontrol
+CONTAINER ID   IMAGE               COMMAND           CREATED         STATUS                            PORTS                    NAMES
+e8f3155d83ae   skycontrol:latest   "python run.py"   4 seconds ago   Up 4 seconds (health: starting)   0.0.0.0:5000->5000/tcp   skycontrol
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] echo
+SkyControl local deployed on port 5000
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] archiveArtifacts
+Archiving artifacts
+[Pipeline] echo
+SkyControl build 9 passed every stage.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

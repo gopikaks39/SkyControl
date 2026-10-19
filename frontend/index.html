@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkyControl Hybrid ATM</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23087f83'/%3E%3Cpath d='M6 18l20-8-6 14-3-5z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+  <section id="login" class="login" hidden>
+    <div class="login-art">
+      <div class="brand"><span class="logo">✈</span><div>SKYCONTROL<small>HYBRID AIR TRAFFIC MANAGEMENT</small></div></div>
+      <span class="eyebrow" style="margin-top:56px">AI-assisted · human in command</span>
+      <h1>Fewer missed calls.<br>Earlier warnings.<br>Humans decide.</h1>
+      <p>A laboratory that closes known gaps in today's air traffic control: readback errors, similar callsigns,
+        late conflict alerts, untrusted surveillance and emergency workload. Built and measured on a real
+        90-minute OpenSky recording of London–Amsterdam traffic.</p>
+      <div class="claims">
+        <div><b>906</b><span>real aircraft analysed</span></div>
+        <div><b>21</b><span>step-by-step scenarios</span></div>
+        <div><b>4</b><span>automation levels</span></div>
+      </div>
+      <small>Academic simulation · not for operational air traffic control</small>
+      <div class="globe"><i style="left:30%;top:40%"></i><i style="left:62%;top:28%;animation-delay:1s"></i><i style="left:45%;top:66%;animation-delay:2s"></i></div>
+    </div>
+    <div class="login-panel">
+      <form id="login-form" class="login-form" autocomplete="on">
+        <span class="eyebrow">Secure sign-in</span>
+        <h2>Take your position</h2>
+        <p>Sign in with your verified SkyControl credentials.</p>
+        <label>Username<input name="username" autocomplete="username" required placeholder="controller or supervisor"></label>
+        <label>Password<input name="password" type="password" autocomplete="current-password" required></label>
+        <button class="primary" type="submit">Sign in →</button>
+        <div id="login-error" class="login-error" role="alert" hidden></div>
+        <div class="login-note">Every sign-in attempt, successful or not, is recorded with time, IP address and reason.
+          Seven wrong attempts lock the username for 15 minutes. First launch? Create accounts with
+          <b>python setup_accounts.py</b>.</div>
+      </form>
+    </div>
+  </section>
+
+  <section id="shell" hidden>
+    <aside>
+      <div class="brand"><span class="logo">✈</span><div>SKYCONTROL<small>HYBRID ATM LAB</small></div></div>
+      <nav id="nav"></nav>
+      <div class="aside-foot"><span class="dot"></span><span id="analytics-status">Analysis loading…</span>
+        <p style="margin:8px 0 0;color:#6f939b">Real OpenSky recording · simulated emergencies · human approval for critical plans</p></div>
+    </aside>
+    <main>
+      <header class="top">
+        <div><span class="eyebrow" id="crumb">Command centre</span></div>
+        <div class="top-right">
+          <span id="clock"></span>
+          <div class="who"><span class="av" id="avatar">?</span><span id="identity"></span></div>
+          <button class="small" id="logout">Switch account</button>
+        </div>
+      </header>
+      <div id="content"></div>
+    </main>
+  </section>
+
+  <dialog id="dialog"><form method="dialog" id="dialog-form"><div id="dialog-body"></div>
+    <div class="row" style="justify-content:flex-end;margin-top:16px"><button value="cancel" type="button" id="dialog-cancel">Cancel</button><button class="primary" value="ok" id="dialog-ok">Save</button></div>
+  </form></dialog>
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="/static/vendor/chart.umd.min.js"></script>
+  <script type="module" src="/static/js/main.js"></script>
+</body>
+</html>

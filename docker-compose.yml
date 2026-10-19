@@ -1,0 +1,15 @@
+# docker compose up -d --build   ->  http://localhost:5000
+services:
+  skycontrol:
+    build: .
+    image: skycontrol:latest
+    container_name: skycontrol
+    ports:
+      - "5000:5000"
+    env_file: .env          # copy .env.example to .env and choose the two passwords first
+    volumes:
+      - skycontrol-db:/app/data/db
+    restart: unless-stopped
+
+volumes:
+  skycontrol-db:

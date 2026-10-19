@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.pytest_cache/
+.ruff_cache/
+reports/
+data/cache/
+data/db/
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal
+.coverage
+coverage.xml

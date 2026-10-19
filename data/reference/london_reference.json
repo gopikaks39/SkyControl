@@ -1,0 +1,33 @@
+{
+  "note": "Approximate public reference positions for teaching and analysis only. Verify against the current UK AIP / national AIPs before any operational use. Runway lengths are rounded longest-runway values.",
+  "airports": [
+    {"icao": "EGLL", "name": "London Heathrow", "lat": 51.4700, "lon": -0.4543, "elevation_ft": 83, "runway_m": 3902, "runway_heading": 270, "medical": true, "major": true},
+    {"icao": "EGKK", "name": "London Gatwick", "lat": 51.1481, "lon": -0.1903, "elevation_ft": 202, "runway_m": 3316, "runway_heading": 260, "medical": true, "major": true},
+    {"icao": "EGSS", "name": "London Stansted", "lat": 51.8850, "lon": 0.2350, "elevation_ft": 348, "runway_m": 3048, "runway_heading": 220, "medical": true, "major": true},
+    {"icao": "EGGW", "name": "London Luton", "lat": 51.8747, "lon": -0.3683, "elevation_ft": 526, "runway_m": 2162, "runway_heading": 250, "medical": true, "major": true},
+    {"icao": "EGLC", "name": "London City", "lat": 51.5053, "lon": 0.0553, "elevation_ft": 19, "runway_m": 1508, "runway_heading": 270, "medical": false, "major": false},
+    {"icao": "EGMC", "name": "London Southend", "lat": 51.5714, "lon": 0.6956, "elevation_ft": 49, "runway_m": 1856, "runway_heading": 230, "medical": false, "major": false},
+    {"icao": "EGKB", "name": "London Biggin Hill", "lat": 51.3308, "lon": 0.0325, "elevation_ft": 598, "runway_m": 1808, "runway_heading": 210, "medical": false, "major": false},
+    {"icao": "EGLF", "name": "Farnborough", "lat": 51.2758, "lon": -0.7763, "elevation_ft": 238, "runway_m": 2440, "runway_heading": 240, "medical": false, "major": false},
+    {"icao": "EGBB", "name": "Birmingham", "lat": 52.4539, "lon": -1.7480, "elevation_ft": 341, "runway_m": 3052, "runway_heading": 330, "medical": true, "major": true},
+    {"icao": "EGNX", "name": "East Midlands", "lat": 52.8311, "lon": -1.3281, "elevation_ft": 306, "runway_m": 2893, "runway_heading": 270, "medical": true, "major": true},
+    {"icao": "EGSH", "name": "Norwich", "lat": 52.6758, "lon": 1.2828, "elevation_ft": 117, "runway_m": 1841, "runway_heading": 270, "medical": false, "major": false},
+    {"icao": "EGHI", "name": "Southampton", "lat": 50.9503, "lon": -1.3568, "elevation_ft": 44, "runway_m": 1723, "runway_heading": 200, "medical": false, "major": false},
+    {"icao": "EGHH", "name": "Bournemouth", "lat": 50.7800, "lon": -1.8425, "elevation_ft": 38, "runway_m": 2271, "runway_heading": 260, "medical": false, "major": false},
+    {"icao": "EGTK", "name": "Oxford", "lat": 51.8369, "lon": -1.3200, "elevation_ft": 270, "runway_m": 1552, "runway_heading": 190, "medical": false, "major": false},
+    {"icao": "EGSC", "name": "Cambridge", "lat": 52.2050, "lon": 0.1750, "elevation_ft": 47, "runway_m": 1965, "runway_heading": 230, "medical": false, "major": false},
+    {"icao": "EBOS", "name": "Ostend-Bruges", "lat": 51.1989, "lon": 2.8622, "elevation_ft": 13, "runway_m": 3200, "runway_heading": 260, "medical": true, "major": false},
+    {"icao": "LFQQ", "name": "Lille", "lat": 50.5633, "lon": 3.0897, "elevation_ft": 157, "runway_m": 2825, "runway_heading": 260, "medical": true, "major": false},
+    {"icao": "EHAM", "name": "Amsterdam Schiphol", "lat": 52.3086, "lon": 4.7639, "elevation_ft": -11, "runway_m": 3800, "runway_heading": 180, "medical": true, "major": true}
+  ],
+  "holding_fixes": [
+    {"name": "BNN", "serves": "EGLL", "lat": 51.7261, "lon": -0.5497, "description": "Bovingdon stack (Heathrow north-west)"},
+    {"name": "OCK", "serves": "EGLL", "lat": 51.3050, "lon": -0.4472, "description": "Ockham stack (Heathrow south-west)"},
+    {"name": "BIG", "serves": "EGLL", "lat": 51.3308, "lon": 0.0347, "description": "Biggin stack (Heathrow south-east)"},
+    {"name": "LAM", "serves": "EGLL", "lat": 51.6461, "lon": 0.1517, "description": "Lambourne stack (Heathrow north-east)"},
+    {"name": "TIMBA", "serves": "EGKK", "lat": 50.9453, "lon": 0.2617, "description": "Gatwick east stack"},
+    {"name": "WILLO", "serves": "EGKK", "lat": 50.9850, "lon": -0.1917, "description": "Gatwick west stack"},
+    {"name": "ABBOT", "serves": "EGSS", "lat": 52.0150, "lon": 0.5970, "description": "Stansted stack"},
+    {"name": "LOREL", "serves": "EGGW", "lat": 52.0130, "lon": -0.0530, "description": "Luton / Stansted stack"}
+  ]
+}
